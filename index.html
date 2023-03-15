@@ -182,7 +182,7 @@
         <input type="file" name="file" id=file />
           <label for="file" class="btn-1" id="file-label">Upload font file (.ttf)</label>
           <br>
-         <button type="submit"> Convert --> </button>
+         <button type="submit" id=submit> Convert --> </button>
 
          <br>
          <br>
@@ -210,6 +210,12 @@
 
   <script> 
 const fileInput = document.querySelector('input[type="file"]');
+const button = document.getElementById("submit").addEventListener("click", (event) => {
+      document.getElementById("submit").innerText = "Converting..."
+      setTimeout(() => {
+          document.getElementById("submit").innerText = "Convert --->"
+      }, 4000)
+})
 
 fileInput.addEventListener('change', (event) => {
   const file = event.target.files[0];
