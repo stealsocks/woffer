@@ -62,9 +62,10 @@
     }
 
     .checkboxes{
-      width: 25rem;
+      max-width: 25rem;
+      width: 90%;
       text-align: left;
-      margin-left: calc(50% - 7rem);
+      margin-left: calc(50% - 8rem);
       font-weight: 600;
        font-size: 12px;
     }
@@ -175,6 +176,12 @@
       padding-left: 6px;
     }
 
+     @media only screen and (max-width: 700px) {
+        label > span{
+          display: none;
+    }
+    }
+
   </style>
 
   <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
@@ -187,11 +194,9 @@
     <h2> WOFFER </h2>
     <p> Upload a <b>.ttf</b> file ---> recieve a <b>.woff2</b>. </p>
     <br>
-    <p style="text-align: justify;"> Variable fonts are <a href="https://v-fonts.com/about">pretty cool</a>. They give you fine-grained control over multiple font axes, most notably, font-weight. With variable fonts, you no longer have to include half a dozen different files to use the full range of weights. However, variable fonts exist as True Type Fonts (.ttf) by default, which are a whopping <a href="https://wicki.io/posts/2021-11-woff2-one-font-format-to-rule-them-all/"><i>250%</i></a> larger than their .woff2 counterparts. That's right, converting to .woff2 gives you a file that's more than 60% smaller, and is supported by <a href="https://caniuse.com/?search=woff2">96.35%</a> of all browsers.
+    <p style="text-align: justify;"> Variable fonts are <a href="https://v-fonts.com/about">pretty cool</a>. They give you fine-grained control over multiple font axes, most notably, font-weight. With variable fonts, you no longer have to include half a dozen different files to use the full range of weights. However, variable fonts exist as True Type Fonts (.ttf) by default, which are a whopping <a href="https://wicki.io/posts/2021-11-woff2-one-font-format-to-rule-them-all/"><i>250%</i></a> larger than their .woff2 counterparts. That's right, converting to .woff2 gives you a file that's more than 60% smaller, and is supported by <a href="https://caniuse.com/?search=woff2">96.35%</a> of all browsers. It let's you do shit like <a href="https://rovity.io/reduce-web-font-size/">this</a>.
      <br><br>
-     While they are great for working with regular .ttf files, most font conversion tools online are terrible at handling the compression of <i>variable</i> .ttf fonts. The only tools that seem to work are CLI-based: the <a href="https://github.com/fonttools/fonttools">fonttools</a> and <a href="https://github.com/google/woff2">woff2</a> libraries. WOFFER uses the former to handle both conversion and subsetting of variable .ttf fonts to their .woff2 versions, and lets you use it through this simple GUI. <i>Conversion usually takes between 5-10 seconds.</i></p>
-
-   
+     While they are great for working with regular .ttf files, most font conversion tools online are terrible at handling the compression of <i>variable</i> .ttf fonts. The only tools that seem to work are CLI-based: the <a href="https://github.com/fonttools/fonttools">fonttools</a> and <a href="https://github.com/google/woff2">woff2</a> libraries. WOFFER uses the former to handle both conversion and subsetting of variable .ttf fonts to their .woff2 versions, and lets you use it through this simple GUI. <i>Conversion usually takes between 5-10 seconds.</i></p>  
     <br>
     <br>
     <br>
@@ -211,15 +216,15 @@
 
         <div class=checkboxes>
           <input type="checkbox" id="checkbox-1" name="latin">
-           <label for="checkbox-1">Basic Latin (<a href="https://www.unicode.org/charts/PDF/U0000.pdf">U+0000–007F</a>) <span>Approx. 50% of total file size.</span></label><br>        
+           <label for="checkbox-1">Basic Latin (<a href="https://www.unicode.org/charts/PDF/U0000.pdf">0000–007F</a>) <span>Approx. 50% of total size.</span></label><br>        
 
 
            <input type="checkbox" id="checkbox-2" name="latin_1">
-           <label for="checkbox-2">Latin-1 Supplement (<a href="https://www.unicode.org/charts/PDF/U0080.pdf">U+0080–00FF</a>) <span> Approx. 25% of total file size.</span></label><br>
+           <label for="checkbox-2">Latin-1 Supplement (<a href="https://www.unicode.org/charts/PDF/U0080.pdf">0080–00FF</a>) <span> Approx. 25% of total size.</span></label><br>
 
 
            <input type="checkbox" id="checkbox-3" name="punctuation">
-           <label for="checkbox-3">General Punctuation (<a href="https://www.unicode.org/charts/PDF/U2000.pdf">U+2000–206F</a>) <span> Approx. 7% of total file size.</span></label><br>
+           <label for="checkbox-3">General Punctuation (<a href="https://www.unicode.org/charts/PDF/U2000.pdf">2000–206F</a>) <span> Approx. 7% of total size.</span></label><br>
         </div>
         </form> 
 
