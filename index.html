@@ -36,7 +36,7 @@
       margin-left: calc(50% - 15rem);
       display: inline-block;
       text-align: center;
-      margin-top: 10vh;
+      margin-top: 5vh;
     }   
 
     button, input{
@@ -142,6 +142,11 @@
       line-height: 1.45em;
     }
 
+    p > a{
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
   </style>
 
   <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
@@ -154,9 +159,11 @@
     <h2> WOFFER </h2>
     <p> Upload a <b>.ttf</b> file ---> recieve a <b>.woff2</b>. </p>
     <br>
-    <p style="text-align: justify;"> A 21st-century tribute to the classic Franklin Gothic type family and its lighter-weight siblings, News Gothic and Lightline Gothic. The design draws specifically from ATF’s original fonts for letterpress printing, and not the later adaptations from other companies. Offered with discounted pricing while it’s still a work in progress. Full disclosure: This typeface was designed by the editor of this website.</p>
+    <p style="text-align: justify;"> Variable fonts are <a href="https://v-fonts.com/about">pretty cool</a>. They give you fine-grained control over multiple font axes, most notably, font-weight. With variable fonts, you no longer have to include half a dozen different files to use the full range of weights. However, variable fonts exist as True Type Fonts (.ttf) by default, which are around 30% larger than their .woff2 counterparts. 
+     <br><br>
+     While they are great for working with regular .ttf files, most font conversion tools online are terrible at handling the compression of variable .ttf files. The only tools that seem to work are CLI-based: the <a href="https://github.com/fonttools/fonttools">fonttools</a> and <a href="https://github.com/google/woff2">woff2</a> libraries. WOFFER uses the former to handle both conversion and subsetting of variable .ttf fonts to their .woff2 versions.</p>
 
-    <br>
+   
     <br>
     <br>
     <br>
@@ -168,7 +175,6 @@
           <br>
          <button type="submit"> Convert --> </button>
 
-         <br>
          <br>
          <br>
          <br>
