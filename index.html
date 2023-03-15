@@ -173,9 +173,9 @@
     <h2> WOFFER </h2>
     <p> Upload a <b>.ttf</b> file ---> recieve a <b>.woff2</b>. </p>
     <br>
-    <p style="text-align: justify;"> Variable fonts are <a href="https://v-fonts.com/about">pretty cool</a>. They give you fine-grained control over multiple font axes, most notably, font-weight. With variable fonts, you no longer have to include half a dozen different files to use the full range of weights. However, variable fonts exist as True Type Fonts (.ttf) by default, which are around 30% larger than their .woff2 counterparts. 
+    <p style="text-align: justify;"> Variable fonts are <a href="https://v-fonts.com/about">pretty cool</a>. They give you fine-grained control over multiple font axes, most notably, font-weight. With variable fonts, you no longer have to include half a dozen different files to use the full range of weights. However, variable fonts exist as True Type Fonts (.ttf) by default, which are a whopping <i>260%</i> larger than their .woff2 counterparts. That's right, converting to .woff2 gives you a file that's more than 60% smaller, and is supported by <a href="https://caniuse.com/?search=woff2">96.35%</a> of all browsers.
      <br><br>
-     While they are great for working with regular .ttf files, most font conversion tools online are terrible at handling the compression of <i>variable</i> .ttf fonts. The only tools that seem to work are CLI-based: the <a href="https://github.com/fonttools/fonttools">fonttools</a> and <a href="https://github.com/google/woff2">woff2</a> libraries. WOFFER uses the former to handle both conversion and subsetting of variable .ttf fonts to their .woff2 versions, and lets you use it through this simple GUI.</p>
+     While they are great for working with regular .ttf files, most font conversion tools online are terrible at handling the compression of <i>variable</i> .ttf fonts. The only tools that seem to work are CLI-based: the <a href="https://github.com/fonttools/fonttools">fonttools</a> and <a href="https://github.com/google/woff2">woff2</a> libraries. WOFFER uses the former to handle both conversion and subsetting of variable .ttf fonts to their .woff2 versions, and lets you use it through this simple GUI. Conversions usually take around 10 seconds.</p>
 
    
     <br>
@@ -218,7 +218,7 @@ const button = document.getElementById("submit").addEventListener("click", (even
       document.getElementById("submit").innerText = "Converting..."
       setTimeout(() => {
           document.getElementById("submit").innerText = "Convert -->"
-      }, 8000)
+      }, 10000)
 })
 
 fileInput.addEventListener('change', (event) => {
