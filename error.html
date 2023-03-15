@@ -1,0 +1,107 @@
+<html>
+
+<head>
+  <title> WOFFER </title>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=0.9"
+  <link rel="icon" type="image/ico" sizes="32x32" href="favicon.ico"> 
+  <link rel="icon" type="image/ico" sizes="16x16" href="favicon.ico"> 
+
+
+  <style>
+   @font-face {
+         font-family: 'Inter';
+         font-style: normal;
+         src: url('fonts/Inter.woff2') format('woff2');
+          font-display: swap;
+          font-weight: 1 999; 
+       }
+
+    body{
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+        sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        text-align: center;
+    }
+
+    p{
+      margin: 1rem 0rem;
+    }
+
+    a{
+      text-decoration: none;
+      color: black;
+      font-weight: 300;
+      transition: 0.2s all ease;
+    }
+
+    a:hover{
+      font-weight: 800;
+    }
+
+    h2{
+      margin-bottom: 4rem;
+    }
+
+    .form-holder{
+      max-width: 30rem;
+      width: 90%;
+      display: inline-block;
+      text-align: center;
+      margin-top: 30vh;
+
+    }   
+
+    
+  </style>
+
+  <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+
+</head>
+
+  <body>
+
+  <div class=form-holder>
+    <h2> ERROR 500 </h2>
+
+    <p> Make sure the file you uploaded was an uncorrupted <b> .ttf </b> file. </p>
+
+    <p><a href=> Go back --> </a></p>
+        
+  </div>
+
+  <script> 
+const fileInput = document.querySelector('input[type="file"]');
+
+fileInput.addEventListener('change', (event) => {
+  const file = event.target.files[0];
+  if(file == null){ 
+    document.getElementById("file-label").innerHTML = `Upload font file (.ttf)`}
+  else{
+    document.getElementById("file-label").innerHTML = `<b>Added: <i>${file.name}</i></b>`
+  }
+
+  let ext = file.name.split(".")[file.name.split(".").length - 1]
+
+  if(ext != "ttf"){
+    document.getElementById("file-label").innerHTML = `<b>Please add a .ttf file only!</b>`}
+
+});
+</script>
+
+
+<!--  <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+
+<script type=module>
+  
+    // Get a reference to the file input element
+    const inputElement = document.querySelector('input[type="file"]');
+
+    // Create a FilePond instance
+    const pond = FilePond.create(inputElement, {acceptedFileTypes:['font/*'], labelIdle: 'Drag-and-drop your .ttf file, or<span class="filepond--label-action"> browse </span>'});
+</script> -->
+
+</body>
+
+</html>

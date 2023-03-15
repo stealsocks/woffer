@@ -1,7 +1,14 @@
 <html>
 
 <head>
-  <title> Woffer </title>
+  <title> WOFFER </title>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=0.9"
+  <link rel="icon" type="image/ico" sizes="32x32" href="favicon.ico"> 
+  <link rel="icon" type="image/ico" sizes="16x16" href="favicon.ico"> 
+
 
   <style>
    @font-face {
@@ -15,6 +22,7 @@
     body{
         font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
         sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        text-align: center;
     }
 
     a{
@@ -32,11 +40,12 @@
     }
 
     .form-holder{
-      width: 30rem;
-      margin-left: calc(50% - 15rem);
+      max-width: 30rem;
+      width: 90%;
       display: inline-block;
       text-align: center;
       margin-top: 5vh;
+
     }   
 
     button, input{
@@ -49,9 +58,9 @@
     }
 
     .checkboxes{
-      width: 55%;
+      width: 20rem;
       text-align: left;
-      margin-left: 27.5%;
+      margin-left: calc(50% - 7rem);
       font-weight: 600;
        font-size: 12px;
     }
@@ -204,8 +213,17 @@ const fileInput = document.querySelector('input[type="file"]');
 
 fileInput.addEventListener('change', (event) => {
   const file = event.target.files[0];
-  if(file == null){ document.getElementById("file-label").innerText = "Please upload a file."}
-  document.getElementById("file-label").innerText = `Added: ${file.name}`
+  if(file == null){ 
+    document.getElementById("file-label").innerHTML = `Upload font file (.ttf)`}
+  else{
+    document.getElementById("file-label").innerHTML = `<b>Added: <i>${file.name}</i></b>`
+  }
+
+  let ext = file.name.split(".")[file.name.split(".").length - 1]
+
+  if(ext != "ttf"){
+    document.getElementById("file-label").innerHTML = `<b>Please add a .ttf file only!</b>`}
+
 });
 </script>
 
