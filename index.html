@@ -1,0 +1,219 @@
+<html>
+
+<head>
+  <title> Woffer </title>
+
+  <style>
+   @font-face {
+         font-family: 'Inter';
+         font-style: normal;
+         src: url('fonts/Inter.woff2') format('woff2');
+          font-display: swap;
+          font-weight: 1 999; 
+       }
+
+    body{
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+        sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    }
+
+    a{
+      text-decoration: none;
+      color: black;
+      font-weight: 400;
+    }
+
+    a:hover{
+      text-decoration: underline;
+    }
+
+    h2{
+      margin-bottom: 1rem;
+    }
+
+    .form-holder{
+      width: 30rem;
+      margin-left: calc(50% - 15rem);
+      display: inline-block;
+      text-align: center;
+      margin-top: 13vh;
+    }   
+
+    button, input{
+      display: inline-block;
+      width: fit-content;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+        sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .checkboxes{
+      width: 55%;
+      text-align: left;
+      margin-left: 27.5%;
+      font-weight: 600;
+       font-size: 12px;
+    }
+
+    .checkboxes > *{
+      margin: 5px 2px;
+      transition: 0.2s all ease;
+      cursor: pointer;
+    }
+
+    .checkboxes > input:hover{
+       transform: scale(1.1);
+       accent-color: black;
+    }
+
+    input[type="checkbox"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 13px;
+      height: 13px;
+      border-radius: 0px;
+      border: 1px solid #111;
+      background-color: white; /* Default background color */
+    }
+
+    input[type="checkbox"]:checked {
+      background-color: #000000; /* Change background color when checked */
+    }
+
+    label{
+      line-height: 1.25em;
+      vertical-align: top;
+      display: inline-block;
+    }
+
+    #file-label:hover{
+/*      background: #000;*/
+/*      text-shadow: 0px 0px 1px white;*/
+      font-weight: 600;
+      transform: scale(1.01);
+    }
+
+    button{
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      transition: 0.2s all ease;
+    }
+
+    button:hover{
+      font-weight: 800;
+      border-radius: 4px;
+    }
+
+    [type=file] + label.btn-1 {
+        background-color: #111;
+        font-size: 14px;
+        transition: 0.2s all ease;
+    }
+
+    [type=file] + label {
+        background: #111;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: "Inter", sans-serif;
+        font-weight: 300;
+        margin-bottom: 1rem;
+        outline: none;
+        padding: 0.6rem 60px;
+        position: relative;
+        transition: all 0.3s;
+        vertical-align: middle;
+    }
+
+    [type=file] {
+        height: 0;
+        overflow: hidden;
+    width: 0;
+    }
+
+    p{
+      font-size: 14px;
+      text-align: center;
+      line-height: 1.45em;
+    }
+
+  </style>
+
+  <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+
+</head>
+
+  <body>
+
+  <div class=form-holder>
+    <h2> WOFFER </h2>
+    <p> Upload a <b>.ttf</b> file ---> recieve a <b>.woff2</b>. </p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <form action="https://subsetting.stealsocks.repl.co/convert/" enctype="multipart/form-data" method="post">
+
+        <input type="file" name="file" id=file />
+          <label for="file" class="btn-1" id="file-label">Upload font file (.ttf)</label>
+          <br>
+         <button type="submit"> Convert --> </button>
+
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+
+    <p> For extra savings, choose a subset of glyphs before you hit "Convert". </p>
+
+        <div class=checkboxes>
+          <input type="checkbox" id="checkbox-1" name="latin">
+           <label for="checkbox-1">Basic Latin (<a href="https://www.unicode.org/charts/PDF/U0000.pdf">U+0000–007F</a>)</label><br>        
+
+
+           <input type="checkbox" id="checkbox-2" name="latin_1">
+           <label for="checkbox-2">Latin-1 Supplement (<a href="https://www.unicode.org/charts/PDF/U0080.pdf">U+0080–00FF</a>)</label><br>
+
+
+           <input type="checkbox" id="checkbox-3" name="punctuation">
+           <label for="checkbox-3">General Punctuation (<a href="https://www.unicode.org/charts/PDF/U2000.pdf">U+2000–206F</a>)</label><br>
+        </div>
+        </form> 
+
+        
+  </div>
+
+  <script> 
+const fileInput = document.querySelector('input[type="file"]');
+
+fileInput.addEventListener('change', (event) => {
+  const file = event.target.files[0];
+  if(file == null){ document.getElementById("file-label").innerText = "Please upload a file."}
+  document.getElementById("file-label").innerText = `Added: ${file.name}`
+});
+</script>
+
+
+<!--  <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+
+<script type=module>
+  
+    // Get a reference to the file input element
+    const inputElement = document.querySelector('input[type="file"]');
+
+    // Create a FilePond instance
+    const pond = FilePond.create(inputElement, {acceptedFileTypes:['font/*'], labelIdle: 'Drag-and-drop your .ttf file, or<span class="filepond--label-action"> browse </span>'});
+</script> -->
+
+</body>
+
+</html>
