@@ -20,7 +20,7 @@
        }
 
     body{
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+        font-family:  avenir, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
         sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
         text-align: center;
     }
@@ -115,6 +115,7 @@
       cursor: pointer;
       background: white;
       transition: 0.2s all ease;
+      margin-bottom: 10px;
     }
 
     button:hover{
@@ -154,7 +155,7 @@
     p{
       font-size: 14px;
       text-align: center;
-      line-height: 1.45em;
+      line-height: 1.5em;
     }
 
     p > a{
@@ -168,7 +169,7 @@
       font-size: 10px;
       font-style: italic;
       display: inline-block;
-      transition: 0.2s all ease;
+      transition: 0.3s all ease;
     }
 
     label:hover > span{
@@ -184,20 +185,17 @@
 
   </style>
 
-  <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
-
 </head>
 
   <body>
 
   <div class=form-holder>
     <h2> WOFFER </h2>
-    <p> Upload a <b>.ttf</b> file ---> recieve a <b>.woff2</b>. </p>
+    <p style="font-family: Inter; font-size: 14px;"> Upload a <b>.ttf</b> file ---> recieve a <b>.woff2</b>. </p>
     <br>
-    <p style="text-align: justify;"> Variable fonts are <a href="https://v-fonts.com/about">pretty cool</a>. They give you fine-grained control over multiple font axes, most notably, font-weight. With variable fonts, you no longer have to include half a dozen different files to use the full range of weights. However, variable fonts exist as True Type Fonts (.ttf) by default, which are a whopping <a href="https://wicki.io/posts/2021-11-woff2-one-font-format-to-rule-them-all/"><i>250%</i></a> larger than their .woff2 counterparts. That's right, converting to .woff2 gives you a file that's more than 60% smaller, and is supported by <a href="https://caniuse.com/?search=woff2">96.35%</a> of all browsers. It let's you do shit like <a href="https://rovity.io/reduce-web-font-size/">this</a>.
+    <p style="text-align: justify;"> Variable fonts are <a href="https://v-fonts.com/about">pretty cool</a>. They give you fine-grained control over multiple font axes; most notably, font-weight. With variable fonts, you no longer have to include half a dozen different files to use the full range of weights. However, variable fonts exist as True Type Fonts (.ttf) by default, which are a whopping <a href="https://wicki.io/posts/2021-11-woff2-one-font-format-to-rule-them-all/"><i>250%</i></a> larger than their .woff2 counterparts. That's right, converting to .woff2 gives you a file that's more than 60% smaller, and is supported by <a href="https://caniuse.com/?search=woff2">96.35%</a> of all browsers. It let's you do shit like <a href="https://rovity.io/reduce-web-font-size/">this</a>.
      <br><br>
      While they are great for working with regular .ttf files, most font conversion tools online are terrible at handling the compression of <i>variable</i> .ttf fonts. The only tools that seem to work are CLI-based: the <a href="https://github.com/fonttools/fonttools">fonttools</a> and <a href="https://github.com/google/woff2">woff2</a> libraries. WOFFER uses the former to handle both conversion and subsetting of variable .ttf fonts to their .woff2 versions, and lets you use it through this simple GUI. <i>Conversion usually takes between 5-10 seconds.</i></p>  
-    <br>
     <br>
     <br>
 
@@ -207,11 +205,8 @@
           <label for="file" class="btn-1" id="file-label">Upload font file (.ttf)</label>
           <br>
          <button type="submit" id=submit> Convert --> </button>
-
          <br>
          <br>
-         <br>
-
     <p> For extra savings, choose a subset/s of glyphs before you hit "Convert". </p>
 
         <div class=checkboxes>
