@@ -191,19 +191,19 @@
 
   <div class=form-holder>
     <h2> WOFFER </h2>
-    <p style="font-family: Inter, avenir, sans-serif; font-size: 14px;"> Upload a <b>.ttf</b> file ---> recieve a <b>.woff2</b>. </p>
+    <p style="font-family: Inter, avenir, sans-serif; font-size: 14px;"> Upload <b>.ttf</b> files ---> recieve a <b>.woff2</b>. </p>
     <br>
     <p style="text-align: justify;"> Variable fonts are <a href="https://v-fonts.com/about">pretty cool</a>. They give you fine-grained control over multiple font axes; most notably, font-weight. With variable fonts, you no longer have to include half a dozen different files to use the full range of weights. However, variable fonts exist as True Type Fonts (.ttf) by default, which are a whopping <a href="https://wicki.io/posts/2021-11-woff2-one-font-format-to-rule-them-all/"><i>250%</i></a> larger than their .woff2 counterparts. That's right, converting to .woff2 gives you a file that's more than 60% smaller, and is supported by <a href="https://caniuse.com/?search=woff2">96.35%</a> of all browsers. It let's you do shit like <a href="https://rovity.io/reduce-web-font-size/">this</a>.
      <br><br>
      While they are great for working with regular .ttf files, most font conversion tools online are terrible at handling the compression of <i>variable</i> .ttf fonts. The only tools that seem to work are CLI-based: the <a href="https://github.com/fonttools/fonttools">fonttools</a> and <a href="https://github.com/google/woff2">woff2</a> libraries. WOFFER uses the former to handle both conversion and subsetting of variable .ttf fonts to their .woff2 versions, and lets you use it through this simple GUI. <i>Conversion usually takes between 5-10 seconds.</i></p>  
-     <p style="text-align: justify;"> <b>P.S:</b> You can also use this app to subset any of your fonts to the provided options, but note that they will be converted to .woff2 when you do. </p>
+     <p style="text-align: justify;"> <b>P.S:</b> You can also use this app to subset any font format to the provided options, but note that they will be converted to .woff2 when you do. </p>
     <br>
     <br>
 
     <form id="fontUploadForm" action="https://woffer2.stealsocks.repl.co/upload" method="post" enctype="multipart/form-data">
 
         <input type="file" name="file" id="fileInput" multiple />
-          <label for="fileInput" class="btn-1" id="file-label">Upload font file (.ttf)</label>
+          <label for="fileInput" class="btn-1" id="file-label">Upload font files...</label>
           <br>
          <button type="submit" id=submit> Convert --> </button>
          <div id="spinner" class="spinner" style="display: none;"></div>
